@@ -1,6 +1,7 @@
 import React from "react";
 import UserCard from "./UserCard";
 
+// UI for homepage content displayed once user validation is done.
 function Home({ onLogout }) {
   return (
     <div>

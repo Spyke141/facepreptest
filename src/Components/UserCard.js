@@ -7,6 +7,7 @@ function UserCard() {
   const [pageSize, setPageSize] = useState(1);
   const [loading, setLoading] = useState(false);
 
+  // Fetching user data from api
   const fetchUser = async () => {
     setLoading(true);
 
@@ -29,6 +30,7 @@ function UserCard() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
+  // Implimenting infinite Scroll using mouse scroll logic
   const InfiniteScroll = () => {
     if (
       window.innerHeight + document.documentElement.scrollTop ===
@@ -38,6 +40,7 @@ function UserCard() {
     }
   };
 
+  // Adding event listener for detecting mouse scroll and performing cleanup
   useEffect(() => {
     window.addEventListener("scroll", InfiniteScroll);
     return () => {
@@ -46,12 +49,13 @@ function UserCard() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
+  // UI for Card component which get displayed on home page.
   return (
     <>
       <div className="row">
         {user.map((user) => (
           <div className="col-md-3 col-lg-2 col-sm-4 my-2 rounded-3 text-bg-secondary mx-2" key={user.uuid}>
-            <img src={user.picture.large} alt={user.picture.medium} className="my-2 text-center"/>
+            <img src={user.picture.large} alt={user.picture.medium} className="mx-3 my-3"/>
             <div className="card-body text-bg-secondary text-center my-2">
               <h6>{!user.id.value ? 'usertemp9911' : user.id.value}</h6>
               <h6>{user.name.first} {user.name.last}</h6>

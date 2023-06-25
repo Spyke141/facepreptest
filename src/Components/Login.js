@@ -2,13 +2,17 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router";
 
 export default function Login({ onLogin }) {
+
+// Create a hook with an object having required form fields.  
   const [user, setUser] = useState({
     email: "",
     password: "",
   });
 
+  // Calling useNavigate to route to different page.
   const navigate = useNavigate();
 
+  // Assigning input values to respective state variables.
   let name, value;
   const handleInput = (e) => {
     name = e.target.name;
@@ -17,6 +21,7 @@ export default function Login({ onLogin }) {
     setUser({ ...user, [name]: value });
   };
 
+  // Function to check if form isn't submitted empty.
   const handleUserLogin = (e) => {
     e.preventDefault();
 
@@ -27,6 +32,7 @@ export default function Login({ onLogin }) {
     }
   };
 
+// Function  to do a basic validation once the user click the login button.
   const validateUser = () => {
     if (user.email === "test@gmail.com" && user.password === "test123") {
       alert("You are logged in successfully");
@@ -37,6 +43,7 @@ export default function Login({ onLogin }) {
     }
   };
 
+  // UI component of login page
   return (
     <>
       <div className="container mt-5 p-5 border border-5 col-lg-4">

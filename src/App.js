@@ -7,16 +7,20 @@ import ErrorPage from "./Error/ErrorPage";
 import { useState } from "react";
 
 function App() {
+  // Creating a state variable to hold the authentication status of user whill user is loggig in or loggin out.
   const [authenticated, setAuthenticated] = useState(false);
 
+  // Set autorized status to true if the user validates credentials at login page.
   const handleLogin = () => {
     setAuthenticated(true);
   };
 
+  // Set autorized status to false once the user logs out from home page.
   const handleLogout = () => {
     setAuthenticated(false);
   };
 
+// Routing user based to current page and activity.
   const RouterValid = createBrowserRouter([
     { path: "/", element: <Login onLogin={handleLogin} /> },
     {

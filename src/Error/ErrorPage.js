@@ -1,6 +1,8 @@
 import React from "react";
 import errorImg from "./404.jpg";
 
+// For displaying Error when user navigate to a route that doesn' exist for this domain.
+
 function ErrorPage() {
   return (
     <div>
